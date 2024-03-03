@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import SelFrameworkDesign.pageobjects.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class StandAloneTest {
@@ -25,10 +26,9 @@ public class StandAloneTest {
 
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get("https://rahulshettyacademy.com/client");
-
+		LandingPage landingPage = new LandingPage(driver);
 		driver.findElement(By.id("userEmail")).sendKeys("fiko@gmail.com");
 		driver.findElement(By.id("userPassword")).sendKeys("Fiko12345*");
 		driver.findElement(By.id("login")).click();
@@ -50,38 +50,38 @@ public class StandAloneTest {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
 		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));
 		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
-		//driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
+		// driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".cartSection h3")));
 		List<WebElement> cartProducts = driver.findElements(By.cssSelector(".cartSection h3"));
 		boolean match = cartProducts.stream()
 				.anyMatch(cartProduct -> cartProduct.getText().equalsIgnoreCase(productName));
 		Assert.assertTrue(match);
 		driver.findElement(By.cssSelector(".totalRow button")).click();
-		
+
 		Actions a = new Actions(driver);
 
-	    a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "germany").build().perform();
+		a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "germany").build().perform();
 
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
 
-	    driver.findElement(By.xpath("(//button[contains(@class,'ta-item')])[1]")).click();
-	    /*
-	    WebElement submit = driver.findElement(By.cssSelector(".action__submit"));
+		driver.findElement(By.xpath("(//button[contains(@class,'ta-item')])[1]")).click();
+		/*
+		 * WebElement submit = driver.findElement(By.cssSelector(".action__submit"));
+		 * 
+		 * JavascriptExecutor js = (JavascriptExecutor) driver;
+		 * 
+		 * js.executeScript("arguments[0].click();", submit);
+		 */
 
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
+		driver.findElement(By.cssSelector(".action__submit")).click();
 
-	    js.executeScript("arguments[0].click();", submit);
-	    */
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".hero-primary")));
 
-	    driver.findElement(By.cssSelector(".action__submit")).click();
-	    
-	    wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".hero-primary")));
+		String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
 
-	    String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
+		Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
 
-	    Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-
-	    driver.close();
+		driver.close();
 
 	}
 
