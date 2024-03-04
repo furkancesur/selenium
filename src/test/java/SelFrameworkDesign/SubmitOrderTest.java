@@ -16,7 +16,7 @@ import org.testng.Assert;
 import SelFrameworkDesign.pageobjects.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class StandAloneTest {
+public class SubmitOrderTest {
 
 	public static void main(String[] args) {
 		// Login info: fiko@gmail.com, Fiko12345*
@@ -27,10 +27,14 @@ public class StandAloneTest {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://rahulshettyacademy.com/client");
-		driver.findElement(By.id("userEmail")).sendKeys("fiko@gmail.com");
-		driver.findElement(By.id("userPassword")).sendKeys("Fiko12345*");
-		driver.findElement(By.id("login")).click();
+		//driver.get("https://rahulshettyacademy.com/client");
+		LandingPage landingPage = new LandingPage(driver);
+		landingPage.goTo();
+		//driver.findElement(By.id("userEmail")).sendKeys("fiko@gmail.com");
+		//driver.findElement(By.id("userPassword")).sendKeys("Fiko12345*");
+		//driver.findElement(By.id("login")).click();
+		landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
+		
 		// getting the all items and to find unique classname: .mb-3, on console:
 		// $(".mb-3")
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
