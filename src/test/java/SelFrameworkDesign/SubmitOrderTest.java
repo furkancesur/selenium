@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import SelFrameworkDesign.pageobjects.LandingPage;
+import SelFrameworkDesign.pageobjects.ProductCatalogue;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SubmitOrderTest {
@@ -27,20 +28,16 @@ public class SubmitOrderTest {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		//driver.get("https://rahulshettyacademy.com/client");
+		// driver.get("https://rahulshettyacademy.com/client");
 		LandingPage landingPage = new LandingPage(driver);
 		landingPage.goTo();
-		//driver.findElement(By.id("userEmail")).sendKeys("fiko@gmail.com");
-		//driver.findElement(By.id("userPassword")).sendKeys("Fiko12345*");
-		//driver.findElement(By.id("login")).click();
+		// driver.findElement(By.id("userEmail")).sendKeys("fiko@gmail.com");
+		// driver.findElement(By.id("userPassword")).sendKeys("Fiko12345*");
+		// driver.findElement(By.id("login")).click();
 		landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
-		
-		// getting the all items and to find unique classname: .mb-3, on console:
-		// $(".mb-3")
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".mb-3")));
 
-		List<WebElement> products = driver.findElements(By.cssSelector(".mb-3"));
+		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+		List<WebElement> products = productCatalogue.getProductList();
 		// try to get the title of the each product using with Stream
 		// product -> product.getText() but we can't say it because the text is not
 		// written there directly so go further inside the code block

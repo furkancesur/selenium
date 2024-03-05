@@ -6,11 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LandingPage {
+import SelFrameworkDesign.AbstractComponents.AbstractComponent;
+
+public class LandingPage extends AbstractComponent {
 
 	WebDriver driver;
 
 	public LandingPage(WebDriver driver) {
+		//from child to parent can send the variables : super and create a constuctor in AbsractComponent 
+		//driver comes from test case  which is SubmitOrderTest
+		super(driver);
+		
 		// initialization
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
