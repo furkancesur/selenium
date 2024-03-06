@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import SelFrameworkDesign.pageobjects.CartPage;
 import SelFrameworkDesign.pageobjects.LandingPage;
 import SelFrameworkDesign.pageobjects.ProductCatalogue;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -34,25 +35,20 @@ public class SubmitOrderTest {
 		// driver.findElement(By.id("userEmail")).sendKeys("fiko@gmail.com");
 		// driver.findElement(By.id("userPassword")).sendKeys("Fiko12345*");
 		// driver.findElement(By.id("login")).click();
-		landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
+		ProductCatalogue productCatalogue = landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
 
-		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
-
-		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
-		// driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
-		List<WebElement> cartProducts = driver.findElements(By.cssSelector(".cartSection h3"));
-		boolean match = cartProducts.stream()
-				.anyMatch(cartProduct -> cartProduct.getText().equalsIgnoreCase(productName));
+		CartPage cartPage = productCatalogue.goToCartPage();
+		Boolean match = cartPage.VerifyProductDisplay(productName);
 		Assert.assertTrue(match);
-		driver.findElement(By.cssSelector(".totalRow button")).click();
+		cartPage.goToCheckout();
 
 		Actions a = new Actions(driver);
 
 		a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "germany").build().perform();
 
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
 
 		driver.findElement(By.xpath("(//button[contains(@class,'ta-item')])[1]")).click();
 		/*
@@ -65,7 +61,7 @@ public class SubmitOrderTest {
 
 		driver.findElement(By.cssSelector(".action__submit")).click();
 
-		//wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".hero-primary")));
+		// wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".hero-primary")));
 
 		String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
 
