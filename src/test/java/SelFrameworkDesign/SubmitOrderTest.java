@@ -38,20 +38,10 @@ public class SubmitOrderTest {
 
 		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
 		List<WebElement> products = productCatalogue.getProductList();
-		// try to get the title of the each product using with Stream
-		// product -> product.getText() but we can't say it because the text is not
-		// written there directly so go further inside the code block
-		WebElement prod = products.stream()
-				.filter(product -> product.findElement(By.cssSelector("b")).getText().equals(productName)).findFirst()
-				.orElse(null);
-		prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
+		productCatalogue.addProductToCart(productName);
 
-		// ng-animating
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
-		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));
 		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
 		// driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".cartSection h3")));
 		List<WebElement> cartProducts = driver.findElements(By.cssSelector(".cartSection h3"));
 		boolean match = cartProducts.stream()
 				.anyMatch(cartProduct -> cartProduct.getText().equalsIgnoreCase(productName));
@@ -62,7 +52,7 @@ public class SubmitOrderTest {
 
 		a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "germany").build().perform();
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
 
 		driver.findElement(By.xpath("(//button[contains(@class,'ta-item')])[1]")).click();
 		/*
@@ -75,7 +65,7 @@ public class SubmitOrderTest {
 
 		driver.findElement(By.cssSelector(".action__submit")).click();
 
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".hero-primary")));
+		//wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".hero-primary")));
 
 		String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
 
