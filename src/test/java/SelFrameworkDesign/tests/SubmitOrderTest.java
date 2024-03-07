@@ -1,10 +1,13 @@
 package SelFrameworkDesign.tests;
+import java.io.IOException;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
+import SelFrameworkDesign.TestComponents.BaseTest;
 import SelFrameworkDesign.pageobjects.CartPage;
 import SelFrameworkDesign.pageobjects.CheckoutPage;
 import SelFrameworkDesign.pageobjects.ConfirmationPage;
@@ -12,23 +15,15 @@ import SelFrameworkDesign.pageobjects.LandingPage;
 import SelFrameworkDesign.pageobjects.ProductCatalogue;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class SubmitOrderTest {
+public class SubmitOrderTest extends BaseTest {
 
-	public static void main(String[] args) throws InterruptedException {
+	@Test
+	public void submitOrder() throws IOException, InterruptedException {
 		// Login info: fiko@gmail.com, Fiko12345*
 		// System.setProperty("webdriver.chrome.driver",
 
 		String productName = "ZARA COAT 3";
-
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		// driver.get("https://rahulshettyacademy.com/client");
-		LandingPage landingPage = new LandingPage(driver);
-		landingPage.goTo();
-		// driver.findElement(By.id("userEmail")).sendKeys("fiko@gmail.com");
-		// driver.findElement(By.id("userPassword")).sendKeys("Fiko12345*");
-		// driver.findElement(By.id("login")).click();
+		LandingPage landingPage = launchApplication();
 		ProductCatalogue productCatalogue = landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
 
 		List<WebElement> products = productCatalogue.getProductList();
