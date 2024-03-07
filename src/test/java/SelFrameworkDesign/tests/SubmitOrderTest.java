@@ -20,10 +20,8 @@ public class SubmitOrderTest extends BaseTest {
 	@Test
 	public void submitOrder() throws IOException, InterruptedException {
 		// Login info: fiko@gmail.com, Fiko12345*
-		// System.setProperty("webdriver.chrome.driver",
 
 		String productName = "ZARA COAT 3";
-		LandingPage landingPage = launchApplication();
 		ProductCatalogue productCatalogue = landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
 
 		List<WebElement> products = productCatalogue.getProductList();
@@ -37,8 +35,6 @@ public class SubmitOrderTest extends BaseTest {
 		String confirmationMessage =  confirmationPage.getConfirmationMessage();
 
 		Assert.assertTrue(confirmationMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-
-		driver.close();
 
 	}
 
