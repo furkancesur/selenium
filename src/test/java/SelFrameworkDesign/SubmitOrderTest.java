@@ -1,26 +1,20 @@
 package SelFrameworkDesign;
-
-import java.time.Duration;
 import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import SelFrameworkDesign.pageobjects.CartPage;
+import SelFrameworkDesign.pageobjects.CheckoutPage;
+import SelFrameworkDesign.pageobjects.ConfirmationPage;
 import SelFrameworkDesign.pageobjects.LandingPage;
 import SelFrameworkDesign.pageobjects.ProductCatalogue;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SubmitOrderTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// Login info: fiko@gmail.com, Fiko12345*
 		// System.setProperty("webdriver.chrome.driver",
 
@@ -42,30 +36,12 @@ public class SubmitOrderTest {
 		CartPage cartPage = productCatalogue.goToCartPage();
 		Boolean match = cartPage.VerifyProductDisplay(productName);
 		Assert.assertTrue(match);
-		cartPage.goToCheckout();
+		CheckoutPage checkoutPage = cartPage.goToCheckout();
+		checkoutPage.selectCountry("Germany");
+		ConfirmationPage confirmationPage = checkoutPage.submitOrder();
+		String confirmationMessage =  confirmationPage.getConfirmationMessage();
 
-		Actions a = new Actions(driver);
-
-		a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "germany").build().perform();
-
-		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
-
-		driver.findElement(By.xpath("(//button[contains(@class,'ta-item')])[1]")).click();
-		/*
-		 * WebElement submit = driver.findElement(By.cssSelector(".action__submit"));
-		 * 
-		 * JavascriptExecutor js = (JavascriptExecutor) driver;
-		 * 
-		 * js.executeScript("arguments[0].click();", submit);
-		 */
-
-		driver.findElement(By.cssSelector(".action__submit")).click();
-
-		// wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".hero-primary")));
-
-		String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
-
-		Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+		Assert.assertTrue(confirmationMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
 
 		driver.close();
 

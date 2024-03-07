@@ -26,14 +26,16 @@ public class CartPage extends AbstractComponent {
 
 	}
 
-	public Boolean VerifyProductDisplay(String productName) {
+	public Boolean VerifyProductDisplay(String productName) throws InterruptedException {
+		Thread.sleep(3000);
 		Boolean match = cartProducts.stream().anyMatch(product -> product.getText().equalsIgnoreCase(productName));
 		return match;
 	}
 
 	public CheckoutPage goToCheckout() {
+		waitForWebElementToAppear(checkoutEle);
 		checkoutEle.click();
-		return new CheckoutPage();
+		return new CheckoutPage(driver);
 	}
 
 }
