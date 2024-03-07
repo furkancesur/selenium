@@ -1,4 +1,4 @@
-package SelFrameworkDesign;
+package SelFrameworkDesign.tests;
 
 import java.time.Duration;
 import java.util.List;

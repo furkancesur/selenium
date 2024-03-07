@@ -1,4 +1,4 @@
-package SelFrameworkDesign;
+package SelFrameworkDesign.tests;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
