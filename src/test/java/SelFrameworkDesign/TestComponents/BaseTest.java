@@ -1,5 +1,6 @@
 package SelFrameworkDesign.TestComponents;
 
+import org.testng.annotations.AfterMethod;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;

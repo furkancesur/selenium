@@ -1,4 +1,6 @@
 package SelFrameworkDesign.tests;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +36,7 @@ public class SubmitOrderTest extends BaseTest {
 		ConfirmationPage confirmationPage = checkoutPage.submitOrder();
 		String confirmationMessage =  confirmationPage.getConfirmationMessage();
 
-		Assert.assertTrue(confirmationMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+		AssertJUnit.assertTrue(confirmationMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
 
 	}
 
