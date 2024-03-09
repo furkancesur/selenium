@@ -17,7 +17,7 @@ import SelFrameworkDesign.pageobjects.ProductCatalogue;
 
 public class ErrorValidationsTest extends BaseTest {
 
-	@Test
+	@Test(groups= {"ErrorHandling"})
 	public void LoginErrorValidation() throws IOException, InterruptedException {
 		// Login info: fiko@gmail.com, Fiko12345*
 		landingPage.loginApplication("f@gmail.com", "F12345*");

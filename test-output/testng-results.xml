@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-09T03:22:03 TRT" name="Default suite" finished-at="2024-03-09T03:22:22 TRT" duration-ms="19033">
+  <suite started-at="2024-03-09T21:27:05 TRT" name="Suite" finished-at="2024-03-09T21:27:14 TRT" duration-ms="8522">
     <groups>
+      <group name="ErrorHandling">
+        <method signature="ErrorValidationsTest.LoginErrorValidation()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@dd8ba08]" name="LoginErrorValidation" class="SelFrameworkDesign.tests.ErrorValidationsTest"/>
+      </group> <!-- ErrorHandling -->
     </groups>
-    <test started-at="2024-03-09T03:22:03 TRT" name="Default test" finished-at="2024-03-09T03:22:22 TRT" duration-ms="19033">
-      <class name="SelFrameworkDesign.tests.SubmitOrderTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@1ddf84b8]" started-at="2024-03-09T03:22:03 TRT" name="launchApplication" finished-at="2024-03-09T03:22:07 TRT" duration-ms="4636" status="PASS">
+    <test started-at="2024-03-09T21:27:05 TRT" name="Submit Order Test" finished-at="2024-03-09T21:27:05 TRT" duration-ms="12">
+    </test> <!-- Submit Order Test -->
+    <test started-at="2024-03-09T21:27:05 TRT" name="Error Validation Test" finished-at="2024-03-09T21:27:14 TRT" duration-ms="8522">
+      <class name="SelFrameworkDesign.tests.ErrorValidationsTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@dd8ba08]" started-at="2024-03-09T21:27:05 TRT" name="launchApplication" finished-at="2024-03-09T21:27:12 TRT" duration-ms="6875" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@1ddf84b8]" started-at="2024-03-09T03:22:07 TRT" name="submitOrder" finished-at="2024-03-09T03:22:16 TRT" duration-ms="8817" status="PASS">
+        <test-method signature="LoginErrorValidation()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@dd8ba08]" started-at="2024-03-09T21:27:12 TRT" name="LoginErrorValidation" finished-at="2024-03-09T21:27:13 TRT" duration-ms="1452" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@1ddf84b8]" started-at="2024-03-09T03:22:16 TRT" name="tearDown" finished-at="2024-03-09T03:22:16 TRT" duration-ms="125" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@1ddf84b8]" started-at="2024-03-09T03:22:16 TRT" name="launchApplication" finished-at="2024-03-09T03:22:20 TRT" duration-ms="3883" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchApplication -->
-        <test-method signature="OrderHistoryTest()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@1ddf84b8]" started-at="2024-03-09T03:22:20 TRT" name="OrderHistoryTest" finished-at="2024-03-09T03:22:22 TRT" depends-on-methods="SelFrameworkDesign.tests.SubmitOrderTest.submitOrder" duration-ms="1424" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OrderHistoryTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@1ddf84b8]" started-at="2024-03-09T03:22:22 TRT" name="tearDown" finished-at="2024-03-09T03:22:22 TRT" duration-ms="120" status="PASS">
+        </test-method> <!-- LoginErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@dd8ba08]" started-at="2024-03-09T21:27:13 TRT" name="tearDown" finished-at="2024-03-09T21:27:14 TRT" duration-ms="145" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- SelFrameworkDesign.tests.SubmitOrderTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- SelFrameworkDesign.tests.ErrorValidationsTest -->
+    </test> <!-- Error Validation Test -->
+  </suite> <!-- Suite -->
 </testng-results>
