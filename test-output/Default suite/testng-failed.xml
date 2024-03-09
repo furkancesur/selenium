@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="SelFrameworkDesign.tests.ErrorValidations">
+      <class name="SelFrameworkDesign.tests.SubmitOrderTest">
         <methods>
-          <include name="submitOrder"/>
           <include name="launchApplication"/>
+          <include name="OrderHistoryTest"/>
+          <include name="submitOrder"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- SelFrameworkDesign.tests.ErrorValidations -->
+      </class> <!-- SelFrameworkDesign.tests.SubmitOrderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

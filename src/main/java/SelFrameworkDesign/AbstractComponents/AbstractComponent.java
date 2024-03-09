@@ -1,6 +1,7 @@
 package SelFrameworkDesign.AbstractComponents;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import SelFrameworkDesign.pageobjects.CartPage;
+import SelFrameworkDesign.pageobjects.OrderPage;
 
 public class AbstractComponent {
 
@@ -30,12 +32,22 @@ public class AbstractComponent {
 
 	@FindBy(xpath = "//button[@routerlink='/dashboard/cart']")
 	WebElement cartHeader;
+	
+	@FindBy(css = "[routerlink*='myorders']")
+	WebElement orderHeader;
 
 	public CartPage goToCartPage() throws InterruptedException {
 		Thread.sleep(3000);
 		cartHeader.click();
 		CartPage cartPage = new CartPage(driver);
 		return cartPage;
+	}
+	
+	public OrderPage goToOrdersPage() throws InterruptedException {
+		waitForWebElementToBeClickable(orderHeader);
+		orderHeader.click();
+		OrderPage orderPage = new OrderPage(driver);
+		return orderPage;
 	}
 
 	public void waitForElementToAppear(By findBy) {
@@ -60,6 +72,11 @@ public class AbstractComponent {
 	public void waitForWebElementToBeClickable(WebElement el) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.elementToBeClickable(el));
+	}
+	
+	public void waitForVisibilityOfAllElements(List<WebElement> elements) {
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	    wait.until(ExpectedConditions.visibilityOfAllElements(elements));
 	}
 
 }

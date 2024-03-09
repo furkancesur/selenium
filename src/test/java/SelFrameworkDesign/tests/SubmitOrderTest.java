@@ -1,4 +1,5 @@
 package SelFrameworkDesign.tests;
+
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
@@ -14,16 +15,17 @@ import SelFrameworkDesign.pageobjects.CartPage;
 import SelFrameworkDesign.pageobjects.CheckoutPage;
 import SelFrameworkDesign.pageobjects.ConfirmationPage;
 import SelFrameworkDesign.pageobjects.LandingPage;
+import SelFrameworkDesign.pageobjects.OrderPage;
 import SelFrameworkDesign.pageobjects.ProductCatalogue;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SubmitOrderTest extends BaseTest {
 
+	String productName = "ZARA COAT 3";
+
 	@Test
 	public void submitOrder() throws IOException, InterruptedException {
 		// Login info: fiko@gmail.com, Fiko12345*
-
-		String productName = "ZARA COAT 3";
 		ProductCatalogue productCatalogue = landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
 
 		List<WebElement> products = productCatalogue.getProductList();
@@ -34,10 +36,18 @@ public class SubmitOrderTest extends BaseTest {
 		CheckoutPage checkoutPage = cartPage.goToCheckout();
 		checkoutPage.selectCountry("Germany");
 		ConfirmationPage confirmationPage = checkoutPage.submitOrder();
-		String confirmationMessage =  confirmationPage.getConfirmationMessage();
+		String confirmationMessage = confirmationPage.getConfirmationMessage();
 
-		AssertJUnit.assertTrue(confirmationMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+		Assert.assertTrue(confirmationMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
 
+	}
+
+	@Test(dependsOnMethods = { "submitOrder" })
+	public void OrderHistoryTest() throws InterruptedException {
+		// "ZARA COAT 3"
+		ProductCatalogue productCatalogue = landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
+		OrderPage ordersPage = productCatalogue.goToOrdersPage();
+		Assert.assertTrue(ordersPage.VerifyOrderDisplay(productName));
 	}
 
 }
