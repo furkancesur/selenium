@@ -1,5 +1,6 @@
 package SelFrameworkDesign.tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
@@ -23,10 +24,10 @@ public class SubmitOrderTest extends BaseTest {
 
 	String productName = "ZARA COAT 3";
 
-	@Test
-	public void submitOrder() throws IOException, InterruptedException {
+	@Test(dataProvider="getData", groups= {"Purchase"})
+	public void submitOrder(String email, String password, String productName) throws IOException, InterruptedException {
 		// Login info: fiko@gmail.com, Fiko12345*
-		ProductCatalogue productCatalogue = landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
+		ProductCatalogue productCatalogue = landingPage.loginApplication(email, password);
 
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
@@ -48,6 +49,11 @@ public class SubmitOrderTest extends BaseTest {
 		ProductCatalogue productCatalogue = landingPage.loginApplication("fiko@gmail.com", "Fiko12345*");
 		OrderPage ordersPage = productCatalogue.goToOrdersPage();
 		Assert.assertTrue(ordersPage.VerifyOrderDisplay(productName));
+	}
+
+	@DataProvider
+	public Object[][] getData() {
+		return new Object[][] {{"fiko@gmail.com","Fiko12345*", "ZARA COAT 3"}, {"csr@gmail.com","Csr12345-", "ADIDAS ORIGINAL"}};
 	}
 
 }
