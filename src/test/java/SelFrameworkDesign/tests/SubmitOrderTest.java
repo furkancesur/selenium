@@ -4,6 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,15 +25,14 @@ public class SubmitOrderTest extends BaseTest {
 
 	String productName = "ZARA COAT 3";
 
-	@Test(dataProvider="getData", groups= {"Purchase"})
-	public void submitOrder(String email, String password, String productName) throws IOException, InterruptedException {
-		// Login info: fiko@gmail.com, Fiko12345*
-		ProductCatalogue productCatalogue = landingPage.loginApplication(email, password);
+	@Test(dataProvider = "getData", groups = { "Purchase" })
+	public void submitOrder(HashMap<String, String> input) throws IOException, InterruptedException {
+		ProductCatalogue productCatalogue = landingPage.loginApplication(input.get("email"), input.get("password"));
 
 		List<WebElement> products = productCatalogue.getProductList();
-		productCatalogue.addProductToCart(productName);
+		productCatalogue.addProductToCart(input.get("product"));
 		CartPage cartPage = productCatalogue.goToCartPage();
-		Boolean match = cartPage.VerifyProductDisplay(productName);
+		Boolean match = cartPage.VerifyProductDisplay(input.get("product"));
 		Assert.assertTrue(match);
 		CheckoutPage checkoutPage = cartPage.goToCheckout();
 		checkoutPage.selectCountry("Germany");
@@ -53,7 +53,18 @@ public class SubmitOrderTest extends BaseTest {
 
 	@DataProvider
 	public Object[][] getData() {
-		return new Object[][] {{"fiko@gmail.com","Fiko12345*", "ZARA COAT 3"}, {"csr@gmail.com","Csr12345-", "ADIDAS ORIGINAL"}};
+
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("email", "fiko@gmail.com");
+		map.put("password", "Fiko12345*");
+		map.put("product", "ZARA COAT 3");
+
+		HashMap<String, String> map1 = new HashMap<String, String>();
+		map1.put("email", "csr@gmail.com");
+		map1.put("password", "Csr12345-");
+		map1.put("product", "ADIDAS ORIGINAL");
+
+		return new Object[][] { { map }, { map1 } };
 	}
 
 }
