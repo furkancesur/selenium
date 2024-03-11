@@ -61,7 +61,7 @@ public class SubmitOrderTest extends BaseTest {
 		File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File destFile=new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
 		FileUtils.copyFile(source, destFile);
-		return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png"
+		return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
 	}
 
 	@DataProvider

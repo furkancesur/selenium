@@ -1,6 +1,9 @@
 package SelFrameworkDesign.tests;
 
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.util.List;
@@ -19,6 +22,7 @@ public class ErrorValidationsTest extends BaseTest {
 
 	@Test(groups= {"ErrorHandling"})
 	public void LoginErrorValidation() throws IOException, InterruptedException {
+		
 		// Login info: fiko@gmail.com, Fiko12345*
 		landingPage.loginApplication("f@gmail.com", "F12345*");
 		AssertJUnit.assertEquals("Incorrect email or password.", landingPage.getErrorMessage());
