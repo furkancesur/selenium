@@ -3,9 +3,15 @@ package SelFrameworkDesign.tests;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -51,6 +57,13 @@ public class SubmitOrderTest extends BaseTest {
 		Assert.assertTrue(ordersPage.VerifyOrderDisplay(productName));
 	}
 
+	public String getScreenshot(String testCaseName) throws IOException {
+		File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File destFile=new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+		FileUtils.copyFile(source, destFile);
+		return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png"
+	}
+
 	@DataProvider
 	public Object[][] getData() throws IOException {
 
@@ -63,9 +76,9 @@ public class SubmitOrderTest extends BaseTest {
 //		map1.put("email", "csr@gmail.com");
 //		map1.put("password", "Csr12345-");
 //		map1.put("product", "ADIDAS ORIGINAL");
-		
-		
-		List<HashMap<String, String>> data =  getJSONDataToMap(System.getProperty("user.dir") + "//src//test//java//SelFrameworkDesign//data//PurchaseOrder.json");
+
+		List<HashMap<String, String>> data = getJSONDataToMap(
+				System.getProperty("user.dir") + "//src//test//java//SelFrameworkDesign//data//PurchaseOrder.json");
 		return new Object[][] { { data.get(0) }, { data.get(1) } };
 	}
 
