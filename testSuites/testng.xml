@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-	<test thread-count="5" name="Sutmit Order Test">
+	<listeners>
+		<listener class-name="SelFrameworkDesign.TestComponents.Listeners"></listener>
+	</listeners>
+	<test thread-count="5" name="Submit Order Test">
 		<classes>
 			<class name="SelFrameworkDesign.tests.SubmitOrderTest" />
 		</classes>
@@ -12,5 +15,4 @@
 			<class name="SelFrameworkDesign.tests.ErrorValidationsTest" />
 		</classes>
 	</test>
-</suite> <!--
-Suite -->
+</suite> <!-- Suite -->

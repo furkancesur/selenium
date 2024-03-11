@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -51,20 +53,28 @@ public class BaseTest {
 		return driver;
 
 	}
-	
+
 	public List<HashMap<String, String>> getJSONDataToMap(String filePath) throws IOException {
 		// read json to string
 		// it has to be File, so get the JSon file path: right click - properties
-		String jsonContent = FileUtils.readFileToString(new File(
-				filePath), StandardCharsets.UTF_8);
-		//String to HashMap Jackson Databind
+		String jsonContent = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);
+		// String to HashMap Jackson Databind
 		ObjectMapper mapper = new ObjectMapper();
 		// in SubmitOrderTest return new Object[][] { { map }, { map1 } };
-		List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>(){});
+		List<HashMap<String, String>> data = mapper.readValue(jsonContent,
+				new TypeReference<List<HashMap<String, String>>>() {
+				});
 		return data;
 	}
 
-	@BeforeMethod(alwaysRun=true)
+	public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
+		File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File destFile = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+		FileUtils.copyFile(source, destFile);
+		return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
+	}
+
+	@BeforeMethod(alwaysRun = true)
 	public LandingPage launchApplication() throws IOException {
 		driver = initDriver();
 		// driver.get("https://rahulshettyacademy.com/client");
@@ -73,11 +83,11 @@ public class BaseTest {
 		// driver.findElement(By.id("userEmail")).sendKeys("fiko@gmail.com");
 		// driver.findElement(By.id("userPassword")).sendKeys("Fiko12345*");
 		// driver.findElement(By.id("login")).click();
-		
+
 		return landingPage;
 	}
-	
-	@AfterMethod(alwaysRun=true)
+
+	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		driver.close();
 	}

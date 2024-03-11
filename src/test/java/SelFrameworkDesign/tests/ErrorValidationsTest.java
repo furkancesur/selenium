@@ -22,10 +22,8 @@ public class ErrorValidationsTest extends BaseTest {
 
 	@Test(groups= {"ErrorHandling"})
 	public void LoginErrorValidation() throws IOException, InterruptedException {
-		
-		// Login info: fiko@gmail.com, Fiko12345*
 		landingPage.loginApplication("f@gmail.com", "F12345*");
-		AssertJUnit.assertEquals("Incorrect email or password.", landingPage.getErrorMessage());
+		Assert.assertEquals("Incorrect email password.", landingPage.getErrorMessage());
 
 	}
 	
