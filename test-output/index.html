@@ -161,7 +161,11 @@
                   <div class="stack-trace">java.lang.AssertionError: expected [Incorrect email or password.] but found [Incorrect email password.]
 	at SelFrameworkDesign.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:26)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 31 stack frames
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 21 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -173,7 +177,11 @@
                   <div class="stack-trace">java.lang.AssertionError: expected [false] but found [true]
 	at SelFrameworkDesign.tests.ErrorValidationsTest.ProductErrorValidation(ErrorValidationsTest.java:42)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 29 stack frames
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 19 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -219,16 +227,16 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+&lt;suite parallel=&quot;tests&quot; name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;SelFrameworkDesign.TestComponents.Listeners&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Sutmit Order Test&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Submit Order Test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;SelFrameworkDesign.tests.SubmitOrderTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Sutmit Order Test --&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Error Validation Test&quot;&gt;
+  &lt;/test&gt; &lt;!-- Submit Order Test --&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Error Validation Test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;SelFrameworkDesign.tests.ErrorValidationsTest&quot;/&gt;
     &lt;/classes&gt;
@@ -244,7 +252,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Sutmit Order Test (1 class)</span>
+                <span class="test-name">Submit Order Test (1 class)</span>
               </li>
               <li>
                 <span class="test-name">Error Validation Test (1 class)</span>
@@ -293,28 +301,28 @@ data.addRows(5);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'submitOrder')
 data.setCell(0, 2, 'SelFrameworkDesign.tests.SubmitOrderTest')
-data.setCell(0, 3, 8706);
+data.setCell(0, 3, 10405);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'submitOrder')
 data.setCell(1, 2, 'SelFrameworkDesign.tests.SubmitOrderTest')
-data.setCell(1, 3, 8190);
+data.setCell(1, 3, 8703);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'ProductErrorValidation')
 data.setCell(2, 2, 'SelFrameworkDesign.tests.ErrorValidationsTest')
-data.setCell(2, 3, 6831);
+data.setCell(2, 3, 7357);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'OrderHistoryTest')
-data.setCell(3, 2, 'SelFrameworkDesign.tests.SubmitOrderTest')
-data.setCell(3, 3, 1280);
+data.setCell(3, 1, 'LoginErrorValidation')
+data.setCell(3, 2, 'SelFrameworkDesign.tests.ErrorValidationsTest')
+data.setCell(3, 3, 5221);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'LoginErrorValidation')
-data.setCell(4, 2, 'SelFrameworkDesign.tests.ErrorValidationsTest')
-data.setCell(4, 3, 696);
+data.setCell(4, 1, 'OrderHistoryTest')
+data.setCell(4, 2, 'SelFrameworkDesign.tests.SubmitOrderTest')
+data.setCell(4, 3, 1288);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 seconds</span>
+              <span class="suite-total-time">Total running time: 56 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -340,73 +348,85 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">SelFrameworkDesign.tests.SubmitOrderTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">SelFrameworkDesign.tests.ErrorValidationsTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">launchApplication</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})</span>
-                <span class="method-start">12334 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">21045 ms</span>
-              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SelFrameworkDesign.tests.SubmitOrderTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">launchApplication</span>
-                <span class="method-start">21158 ms</span>
+                <span class="method-start">89 ms</span>
               </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})</span>
-                <span class="method-start">25184 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">33375 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">launchApplication</span>
-                <span class="method-start">33534 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">OrderHistoryTest</span>
-                <span class="method-start">37735 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">39016 ms</span>
-              </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SelFrameworkDesign.tests.ErrorValidationsTest</div> <!-- chronological-class-name -->
-              <div class="configuration-method before">
-                <span class="method-name">launchApplication</span>
-                <span class="method-start">39378 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">LoginErrorValidation</span>
-                <span class="method-start">43324 ms</span>
+                <span class="method-start">16259 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">44530 ms</span>
+                <span class="method-start">21927 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">launchApplication</span>
-                <span class="method-start">44664 ms</span>
+                <span class="method-start">22023 ms</span>
               </div> <!-- configuration-method before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SelFrameworkDesign.tests.SubmitOrderTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})</span>
+                <span class="method-start">26605 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SelFrameworkDesign.tests.ErrorValidationsTest</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">ProductErrorValidation</span>
-                <span class="method-start">49180 ms</span>
+                <span class="method-start">27423 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">56186 ms</span>
+                <span class="method-start">34968 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SelFrameworkDesign.tests.SubmitOrderTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">37011 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">launchApplication</span>
+                <span class="method-start">37082 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})</span>
+                <span class="method-start">42118 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">50823 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">launchApplication</span>
+                <span class="method-start">50916 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">OrderHistoryTest</span>
+                <span class="method-start">55432 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">56721 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
