@@ -13,6 +13,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import SelFrameworkDesign.TestComponents.BaseTest;
+import SelFrameworkDesign.TestComponents.Retry;
 import SelFrameworkDesign.pageobjects.CartPage;
 import SelFrameworkDesign.pageobjects.CheckoutPage;
 import SelFrameworkDesign.pageobjects.ConfirmationPage;
@@ -20,7 +21,7 @@ import SelFrameworkDesign.pageobjects.ProductCatalogue;
 
 public class ErrorValidationsTest extends BaseTest {
 
-	@Test(groups= {"ErrorHandling"})
+	@Test(groups= {"ErrorHandling"}, retryAnalyzer=Retry.class)
 	public void LoginErrorValidation() throws IOException, InterruptedException {
 		landingPage.loginApplication("f@gmail.com", "F12345*");
 		Assert.assertEquals("Incorrect email password.", landingPage.getErrorMessage());
