@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="3" failed="2" skipped="0">
+<testng-results retried="1" ignored="1" total="7" passed="3" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-13T02:10:09 TRT" name="Suite" finished-at="2024-03-13T02:11:06 TRT" duration-ms="56821">
+  <suite started-at="2024-03-13T02:34:29 TRT" name="Suite" finished-at="2024-03-13T02:35:06 TRT" duration-ms="37315">
     <groups>
       <group name="ErrorHandling">
         <method signature="ErrorValidationsTest.LoginErrorValidation()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" name="LoginErrorValidation" class="SelFrameworkDesign.tests.ErrorValidationsTest"/>
@@ -11,13 +11,13 @@
         <method signature="SubmitOrderTest.submitOrder(java.util.HashMap)[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" name="submitOrder" class="SelFrameworkDesign.tests.SubmitOrderTest"/>
       </group> <!-- Purchase -->
     </groups>
-    <test started-at="2024-03-13T02:10:09 TRT" name="Error Validation Test" finished-at="2024-03-13T02:10:44 TRT" duration-ms="35056">
+    <test started-at="2024-03-13T02:34:29 TRT" name="Error Validation Test" finished-at="2024-03-13T02:34:55 TRT" duration-ms="25953">
       <class name="SelFrameworkDesign.tests.ErrorValidationsTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:10:09 TRT" name="launchApplication" finished-at="2024-03-13T02:10:26 TRT" duration-ms="16258" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:29 TRT" name="launchApplication" finished-at="2024-03-13T02:34:36 TRT" duration-ms="7256" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="LoginErrorValidation()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:10:26 TRT" name="LoginErrorValidation" finished-at="2024-03-13T02:10:31 TRT" duration-ms="5221" status="FAIL">
+        <test-method retried="true" signature="LoginErrorValidation()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:36 TRT" name="LoginErrorValidation" finished-at="2024-03-13T02:34:37 TRT" duration-ms="661" status="SKIP">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [Incorrect email or password.] but found [Incorrect email password.]]]>
@@ -30,7 +30,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:150)
 at org.testng.Assert.assertEquals(Assert.java:132)
 at org.testng.Assert.assertEquals(Assert.java:656)
 at org.testng.Assert.assertEquals(Assert.java:666)
-at SelFrameworkDesign.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:26)
+at SelFrameworkDesign.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:27)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -57,15 +57,63 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:10:31 TRT" name="tearDown" finished-at="2024-03-13T02:10:31 TRT" duration-ms="95" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:37 TRT" name="tearDown" finished-at="2024-03-13T02:34:37 TRT" duration-ms="99" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:10:31 TRT" name="launchApplication" finished-at="2024-03-13T02:10:37 TRT" duration-ms="5400" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:37 TRT" name="launchApplication" finished-at="2024-03-13T02:34:39 TRT" duration-ms="2232" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="ProductErrorValidation()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:10:37 TRT" name="ProductErrorValidation" finished-at="2024-03-13T02:10:44 TRT" duration-ms="7357" status="FAIL">
+        <test-method signature="LoginErrorValidation()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:39 TRT" name="LoginErrorValidation" finished-at="2024-03-13T02:34:42 TRT" duration-ms="3093" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Incorrect email or password.] but found [Incorrect email password.]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Incorrect email or password.] but found [Incorrect email password.]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:656)
+at org.testng.Assert.assertEquals(Assert.java:666)
+at SelFrameworkDesign.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:27)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:249)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:76)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:819)
+at org.testng.TestRunner.run(TestRunner.java:619)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:481)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:58)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1583)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:42 TRT" name="tearDown" finished-at="2024-03-13T02:34:43 TRT" duration-ms="157" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:43 TRT" name="launchApplication" finished-at="2024-03-13T02:34:47 TRT" duration-ms="4396" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="ProductErrorValidation()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:47 TRT" name="ProductErrorValidation" finished-at="2024-03-13T02:34:54 TRT" duration-ms="7322" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [false] but found [true]]]>
@@ -103,19 +151,19 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProductErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:10:44 TRT" name="tearDown" finished-at="2024-03-13T02:10:44 TRT" duration-ms="73" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.ErrorValidationsTest@71075444]" started-at="2024-03-13T02:34:54 TRT" name="tearDown" finished-at="2024-03-13T02:34:55 TRT" duration-ms="71" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- SelFrameworkDesign.tests.ErrorValidationsTest -->
     </test> <!-- Error Validation Test -->
-    <test started-at="2024-03-13T02:10:09 TRT" name="Submit Order Test" finished-at="2024-03-13T02:11:06 TRT" duration-ms="56821">
+    <test started-at="2024-03-13T02:34:29 TRT" name="Submit Order Test" finished-at="2024-03-13T02:35:06 TRT" duration-ms="37315">
       <class name="SelFrameworkDesign.tests.SubmitOrderTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:10:09 TRT" name="launchApplication" finished-at="2024-03-13T02:10:36 TRT" duration-ms="26516" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:34:29 TRT" name="launchApplication" finished-at="2024-03-13T02:34:35 TRT" duration-ms="6666" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:10:36 TRT" name="submitOrder" data-provider="getData" finished-at="2024-03-13T02:10:46 TRT" duration-ms="10405" status="PASS">
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:34:35 TRT" name="submitOrder" data-provider="getData" finished-at="2024-03-13T02:34:44 TRT" duration-ms="8673" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -126,15 +174,15 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:10:46 TRT" name="tearDown" finished-at="2024-03-13T02:10:46 TRT" duration-ms="71" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:34:44 TRT" name="tearDown" finished-at="2024-03-13T02:34:44 TRT" duration-ms="68" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:10:46 TRT" name="launchApplication" finished-at="2024-03-13T02:10:52 TRT" duration-ms="5036" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:34:44 TRT" name="launchApplication" finished-at="2024-03-13T02:34:51 TRT" duration-ms="7063" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:10:52 TRT" name="submitOrder" data-provider="getData" finished-at="2024-03-13T02:11:00 TRT" duration-ms="8703" status="PASS">
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:34:51 TRT" name="submitOrder" data-provider="getData" finished-at="2024-03-13T02:35:00 TRT" duration-ms="8706" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -145,19 +193,19 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:11:00 TRT" name="tearDown" finished-at="2024-03-13T02:11:00 TRT" duration-ms="92" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:35:00 TRT" name="tearDown" finished-at="2024-03-13T02:35:00 TRT" duration-ms="108" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:11:00 TRT" name="launchApplication" finished-at="2024-03-13T02:11:05 TRT" duration-ms="4516" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:35:00 TRT" name="launchApplication" finished-at="2024-03-13T02:35:04 TRT" duration-ms="4501" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="OrderHistoryTest()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:11:05 TRT" name="OrderHistoryTest" finished-at="2024-03-13T02:11:06 TRT" depends-on-methods="SelFrameworkDesign.tests.SubmitOrderTest.submitOrder" duration-ms="1288" status="PASS">
+        <test-method signature="OrderHistoryTest()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:35:04 TRT" name="OrderHistoryTest" finished-at="2024-03-13T02:35:06 TRT" depends-on-methods="SelFrameworkDesign.tests.SubmitOrderTest.submitOrder" duration-ms="1321" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OrderHistoryTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:11:06 TRT" name="tearDown" finished-at="2024-03-13T02:11:06 TRT" duration-ms="86" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:SelFrameworkDesign.tests.SubmitOrderTest@19e4653c]" started-at="2024-03-13T02:35:06 TRT" name="tearDown" finished-at="2024-03-13T02:35:06 TRT" duration-ms="103" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

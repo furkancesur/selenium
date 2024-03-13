@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods, 2 failed,   3 passed</span>
+                    <span class="method-stats">6 methods, 2 failed,  1 skipped,  3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -114,6 +114,20 @@
                     </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
+                    <span class="method-list-title skipped">Retried methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="SelFrameworkDesign.tests.ErrorValidationsTest" class="method navigator-link" hash-for-method="LoginErrorValidation">LoginErrorValidation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Suite -->
+                  </li>
+                  <li>
                     <span class="method-list-title passed">Passed methods</span>
                     <span class="show-or-hide-methods passed">
                       <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
@@ -127,12 +141,12 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="SelFrameworkDesign.tests.SubmitOrderTest" class="method navigator-link" hash-for-method="submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})">submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="SelFrameworkDesign.tests.SubmitOrderTest" class="method navigator-link" hash-for-method="submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})">submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="SelFrameworkDesign.tests.SubmitOrderTest" class="method navigator-link" hash-for-method="submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})">submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="SelFrameworkDesign.tests.SubmitOrderTest" class="method navigator-link" hash-for-method="submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})">submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -159,7 +173,7 @@
                   </a> <!-- LoginErrorValidation -->
                   <span class="method-name">LoginErrorValidation</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [Incorrect email or password.] but found [Incorrect email password.]
-	at SelFrameworkDesign.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:26)
+	at SelFrameworkDesign.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:27)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
@@ -187,6 +201,30 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">SelFrameworkDesign.tests.ErrorValidationsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="LoginErrorValidation">
+                  </a> <!-- LoginErrorValidation -->
+                  <span class="method-name">LoginErrorValidation</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [Incorrect email or password.] but found [Incorrect email password.]
+	at SelFrameworkDesign.tests.ErrorValidationsTest.LoginErrorValidation(ErrorValidationsTest.java:27)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 21 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-skipped -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -202,18 +240,18 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})">
-                  </a> <!-- submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com}) -->
-                  <span class="method-name">submitOrder</span>
-                  <span class="parameters">({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})">
                   </a> <!-- submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com}) -->
                   <span class="method-name">submitOrder</span>
                   <span class="parameters">({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})">
+                  </a> <!-- submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com}) -->
+                  <span class="method-name">submitOrder</span>
+                  <span class="parameters">({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -297,32 +335,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(6);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'submitOrder')
 data.setCell(0, 2, 'SelFrameworkDesign.tests.SubmitOrderTest')
-data.setCell(0, 3, 10405);
+data.setCell(0, 3, 8706);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'submitOrder')
 data.setCell(1, 2, 'SelFrameworkDesign.tests.SubmitOrderTest')
-data.setCell(1, 3, 8703);
+data.setCell(1, 3, 8673);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'ProductErrorValidation')
 data.setCell(2, 2, 'SelFrameworkDesign.tests.ErrorValidationsTest')
-data.setCell(2, 3, 7357);
+data.setCell(2, 3, 7322);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'LoginErrorValidation')
 data.setCell(3, 2, 'SelFrameworkDesign.tests.ErrorValidationsTest')
-data.setCell(3, 3, 5221);
+data.setCell(3, 3, 3093);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'OrderHistoryTest')
 data.setCell(4, 2, 'SelFrameworkDesign.tests.SubmitOrderTest')
-data.setCell(4, 3, 1288);
+data.setCell(4, 3, 1321);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'LoginErrorValidation')
+data.setCell(5, 2, 'SelFrameworkDesign.tests.ErrorValidationsTest')
+data.setCell(5, 3, 661);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 56 seconds</span>
+              <span class="suite-total-time">Total running time: 37 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -358,32 +400,52 @@ return data;
               <div class="chronological-class-name">SelFrameworkDesign.tests.SubmitOrderTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">launchApplication</span>
-                <span class="method-start">89 ms</span>
+                <span class="method-start">84 ms</span>
               </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})</span>
+                <span class="method-start">6751 ms</span>
+              </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SelFrameworkDesign.tests.ErrorValidationsTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">LoginErrorValidation</span>
-                <span class="method-start">16259 ms</span>
+                <span class="method-start">7256 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">21927 ms</span>
+                <span class="method-start">7919 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">launchApplication</span>
-                <span class="method-start">22023 ms</span>
+                <span class="method-start">8018 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">LoginErrorValidation</span>
+                <span class="method-start">10250 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">13817 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">launchApplication</span>
+                <span class="method-start">13975 ms</span>
               </div> <!-- configuration-method before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SelFrameworkDesign.tests.SubmitOrderTest</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">submitOrder({password=Fiko12345*, product=ZARA COAT 3, email=fiko@gmail.com})</span>
-                <span class="method-start">26605 ms</span>
-              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">15425 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">launchApplication</span>
+                <span class="method-start">15494 ms</span>
+              </div> <!-- configuration-method before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SelFrameworkDesign.tests.ErrorValidationsTest</div> <!-- chronological-class-name -->
@@ -391,42 +453,40 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">ProductErrorValidation</span>
-                <span class="method-start">27423 ms</span>
+                <span class="method-start">18371 ms</span>
               </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SelFrameworkDesign.tests.SubmitOrderTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})</span>
+                <span class="method-start">22557 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">SelFrameworkDesign.tests.ErrorValidationsTest</div> <!-- chronological-class-name -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">34968 ms</span>
+                <span class="method-start">25868 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">SelFrameworkDesign.tests.SubmitOrderTest</div> <!-- chronological-class-name -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">37011 ms</span>
+                <span class="method-start">31264 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">launchApplication</span>
-                <span class="method-start">37082 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">submitOrder({password=Csr12345-, product=ADIDAS ORIGINAL, email=csr@gmail.com})</span>
-                <span class="method-start">42118 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">50823 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">launchApplication</span>
-                <span class="method-start">50916 ms</span>
+                <span class="method-start">31373 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">OrderHistoryTest</span>
-                <span class="method-start">55432 ms</span>
+                <span class="method-start">35877 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">56721 ms</span>
+                <span class="method-start">37199 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
