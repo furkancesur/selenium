@@ -10,7 +10,6 @@
         <methods>
           <include name="ProductErrorValidation"/>
           <include name="launchApplication"/>
-          <include name="LoginErrorValidation"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- SelFrameworkDesign.tests.ErrorValidationsTest -->

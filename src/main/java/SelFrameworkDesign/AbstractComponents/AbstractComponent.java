@@ -37,8 +37,8 @@ public class AbstractComponent {
 	WebElement orderHeader;
 
 	public CartPage goToCartPage() throws InterruptedException {
-		waitForWebElementToAppear(cartHeader);
-		//Thread.sleep(3000);
+		//waitForWebElementToAppear(cartHeader);
+		Thread.sleep(3000);
 		cartHeader.click();
 		CartPage cartPage = new CartPage(driver);
 		return cartPage;

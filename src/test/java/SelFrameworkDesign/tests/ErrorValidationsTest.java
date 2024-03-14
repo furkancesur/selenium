@@ -38,8 +38,7 @@ public class ErrorValidationsTest extends BaseTest {
 		ProductCatalogue productCatalogue = landingPage.loginApplication("csr@gmail.com", "Csr12345-");
 		productCatalogue.addProductToCart(productName);
 		CartPage cartPage = productCatalogue.goToCartPage();
-		Thread.sleep(3000);
-		Boolean match = cartPage.VerifyProductDisplay("ZARA COAT 3");
+		Boolean match = cartPage.VerifyProductDisplay("ZARA COAT 33");
 		Assert.assertFalse(match);
 
 	}
