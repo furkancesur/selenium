@@ -12,7 +12,6 @@ import SelFrameworkDesign.pageobjects.CheckoutPage;
 import SelFrameworkDesign.pageobjects.ConfirmationPage;
 import SelFrameworkDesign.pageobjects.LandingPage;
 import SelFrameworkDesign.pageobjects.ProductCatalogue;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -28,21 +27,21 @@ public class StepDefinitionImpl extends BaseTest {
 		landingPage = launchApplication();
 	}
 
-	@Given("ˆLogged in with username (.+) and password (.+)$")
+	@Given("^Logged in with username (.+) and password (.+)$")
 	public void logged_in_username_and_password(String username, String password) {
 		productCatalogue = landingPage.loginApplication(username, password);
 	}
 
-	@When("ˆI add product (.+) to Cart$")
-	public void I_add_product_to_Cart(String productName) {
+	@When("^I add product (.+) to Cart$")
+	public void I_add_product_to_cart(String productName) throws InterruptedException {
 		List<WebElement> products = productCatalogue.getProductList();
 		productCatalogue.addProductToCart(productName);
 	}
 
-	@When("ˆCheckout (.+) and submit the order$")
-	public void Checkout_submit_order(String productName) throws InterruptedException {
+	@When("^Checkout (.+) and submit the order$")
+	public void checkout_submit_order(String productName) throws InterruptedException {
 		CartPage cartPage = productCatalogue.goToCartPage();
-		Boolean match = cartPage.VerifyProductDisplay(productName);
+		Boolean match = cartPage.VerifyProductDisplay(productName.trim());
 		Assert.assertTrue(match);
 		CheckoutPage checkoutPage = cartPage.goToCheckout();
 		checkoutPage.selectCountry("Germany");
@@ -54,5 +53,14 @@ public class StepDefinitionImpl extends BaseTest {
 		String confirmationMessage = confirmationPage.getConfirmationMessage();
 
 		Assert.assertTrue(confirmationMessage.equalsIgnoreCase(string));
+		driver.close();
 	}
+
+	@Then("^\"([^\"]*)\" message is displayed$")
+	public void something_message_is_displayed(String strArg1) throws Throwable {
+
+		Assert.assertEquals(strArg1, landingPage.getErrorMessage());
+		driver.close();
+	}
+
 }

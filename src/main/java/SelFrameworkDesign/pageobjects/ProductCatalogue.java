@@ -37,6 +37,8 @@ public class ProductCatalogue extends AbstractComponent {
 
 	public List<WebElement> getProductList() {
 		waitForElementToAppear(productsBy);
+		products.forEach(product -> waitForWebElementToAppear(product.findElement(By.cssSelector("b"))));
+
 		return products;
 	}
 
@@ -44,16 +46,36 @@ public class ProductCatalogue extends AbstractComponent {
 		// try to get the title of the each product using with Stream
 		// product -> product.getText() but we can't say it because the text is not
 		// written there directly so go further inside the code block
-		WebElement prod = getProductList().stream()
-				.filter(product -> product.findElement(By.cssSelector("b")).getText().equals(productName)).findFirst()
+		/*
+		 * getProductList().stream().forEach(product ->
+		 * System.out.println(product.findElement(By.cssSelector("b")).getText()));
+		 * 
+		 * WebElement prod = getProductList().stream() .filter(product ->
+		 * product.findElement(By.cssSelector("b")).getText().equals(productName)).
+		 * findFirst() .orElse(null); return prod;
+		 */
+		WebElement prod = getProductList().stream().peek(product -> {
+			String name = product.findElement(By.cssSelector("b")).getText();
+			System.out.println("Product name: " + name);
+			if (name.equals(productName)) {
+				System.out.println("Match found: " + name);
+			}
+		}).filter(product -> product.findElement(By.cssSelector("b")).getText().trim().equals(productName.trim())).findFirst()
 				.orElse(null);
+
+		if (prod == null) {
+			System.out.println("No product found with the name: " + productName);
+		}
 		return prod;
+
 	}
 
-	public void addProductToCart(String productName) {
+	public void addProductToCart(String productName) throws InterruptedException {
+
 		WebElement prod = getProductByName(productName);
+		System.out.println(prod);
 		prod.findElement(addToCart).click();
 		waitForElementToAppear(toastMessage);
-		//waitForElementToDisappear(spinner);
+		waitForElementToDisappear(spinner);
 	}
 }
